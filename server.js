@@ -11,8 +11,24 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(__dirname));
 
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/index.html')));
+
+app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, '/notes.html')));
+
+// Set up api routes 
+app.get('/api/notes', function (req, res){
+    res.json(notes);
+});
+
+// Create new notes - takes in JSON input
+app.post ('/api/notes', function (req, res){
+    const newNote = req.body;
+    notes.push(newNote);
+    res.json(newNote);
+    console.log('Added a new note: ' + newNote);
+});
+
 // Site is live..
 app.listen(PORT, function () {
     console.log("App listening on PORT: " + PORT);
 });
-
