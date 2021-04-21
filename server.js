@@ -13,7 +13,7 @@ app.use(express.static(__dirname));
 
 const notes = [];
 
-// Routes
+// Routes - link routes
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 app.get('/api/notes', (req, res) => res.sendFile(path.join(__dirname, '/db/db.json')));
