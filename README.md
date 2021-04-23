@@ -1,4 +1,4 @@
-# Note_Taker App
+# Note Taker App
 
 User Story
 
